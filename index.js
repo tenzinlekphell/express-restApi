@@ -1,8 +1,18 @@
 import express from 'express';
+import bodyParser from 'body-parser';
+import usersRoutes from './routes/users.js';
 
-const PORT = 6000;
 const app = express();
+const PORT = 1000;
 
-app.listen(PORT, () => {
-  console.log(`Server is listening on PORT ${PORT}`);
+app.use(bodyParser.json());
+app.use('/users', usersRoutes);
+
+app.get('/', (req, res) => {
+  console.log('response was sent');
+  res.send('Hello from homepage');
+});
+
+app.listen(PORT, (req, res) => {
+  console.log(`Server is running on port ${PORT}`);
 });
