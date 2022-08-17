@@ -1,23 +1,44 @@
-import express from 'express';
-import {
-  getUsers,
-  getUser,
-  createUser,
-  updateUser,
-  deleteUser,
-} from '../controllers/users.js';
+const router = require('express').Router();
+let User = require('../model/user.model');
 
-const router = express.Router();
+// Get user data
+router.route('/').get((req, res) => {
+  User.find()
+    .then((Users) => res.json(Users))
+    .catch((err) => res.status(400).json('Error'));
+});
 
-// User routes
-router.get('/', getUsers);
+// Post user data
+router.route('/add').post((req, res) => {
+  const name = req.body.name;
+  const age = req.body.age;
 
-router.post('/', createUser);
+  const newUser = new User({ name, age });
+  newUser
+    .save()
+    .then(() => res.json('User added'))
+    .catch((err) => res.status(400).json('Error' + err));
+});
 
-router.get('/:id', getUser);
+// Delete user data
+router.route('/:id').delete((req, res) => {
+  User.findByIdAndDelete(req.params.id);
+  then(() => res.json('User has been removed')).catch((err) =>
+    res.status(400).json('Error' + err)
+  );
+});
 
-router.patch('/:id', updateUser);
+// Update user data
+router.route('/update/:id').post((req, res) => {
+  User.findById(req.params.id)
+    .then((User) => {
+      User.name = req.body.name;
+      User.age = req.body.age;
+      User.save()
+        .then(() => res.json('User has been updated'))
+        .catch((err) => res.status(400).json('Error' + err));
+    })
+    .catch((err) => res.status(400).json('Error' + err));
+});
 
-router.delete('/:id', deleteUser);
-
-export default router;
+module.exports = router;
