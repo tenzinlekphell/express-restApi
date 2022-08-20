@@ -5,7 +5,7 @@ let User = require('../model/user.model');
 router.route('/').get((req, res) => {
   User.find()
     .then((Users) => res.json(Users))
-    .catch((err) => res.status(400).json('Error'));
+    .catch((err) => res.status(400).json('Error' + err));
 });
 
 // Post user data
