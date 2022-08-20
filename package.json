@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/tenzinlekphell/express-restApi#readme",
   "dependencies": {
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@mui/material": "^5.10.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
