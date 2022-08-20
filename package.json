@@ -1,6 +1,9 @@
 {
   "name": "express-restapi",
   "version": "1.0.0",
+  "engines": {
+    "node": "16.13.2"
+  },
   "description": "",
   "proxy": "https://grocery-dictionary-crudapp.herokuapp.com/",
   "main": "index.js",
