@@ -84,7 +84,7 @@ const AddGroceries = () => {
         </div>
         <div class="mb-3 w-50 mx-auto">
           <button type="submit" class="btn btn-primary mb-5">
-            Add To
+            Add To Dictionary
           </button>
         </div>
         <div className="message">
