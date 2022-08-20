@@ -2,9 +2,11 @@
   "name": "express-restapi",
   "version": "1.0.0",
   "description": "",
+  "proxy": "https://grocery-dictionary-crudapp.herokuapp.com/",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,7 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "mongoose": "^6.5.2",
+    "path": "^0.12.7",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

@@ -1,5 +1,5 @@
 // Created db, connected to db using Node JS
-
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -35,6 +35,13 @@ mongoose
     console.log('Error connecting:', err);
   });
 
-app.listen(PORT, () => {
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
+
+app.listen(PORT || 5050, () => {
   console.log(`App is listening on PORT ${PORT}`);
 });
