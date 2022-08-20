@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-// import bootstrap from 'bootstrap';
 
 const AddGroceries = () => {
   const [groceryData, setGroceryData] = useState({
@@ -8,9 +7,7 @@ const AddGroceries = () => {
     price: '',
     storeName: '',
   });
-  //   const [itemName, setItemName] = useState('');
-  //   const [price, setPrice] = useState(Number);
-  //   const [storeName, setStoreName] = useState('');
+
   const [message, setMessage] = useState('');
 
   const handleChange = (e) => {
@@ -40,31 +37,6 @@ const AddGroceries = () => {
 
   return (
     <div>
-      {/* <form onSubmit={handleSubmit}>
-        <input
-          name="itemName"
-          type="text"
-          value={groceryData.itemName}
-          placeholder="Name"
-          onChange={handleChange}
-        />
-        <input
-          name="price"
-          type="number"
-          value={groceryData.price}
-          placeholder="Price"
-          onChange={handleChange}
-        />
-        <input
-          name="storeName"
-          type="text"
-          value={groceryData.storeName}
-          placeholder="Store"
-          onChange={handleChange}
-        />
-        <button type="submit">Create</button>
-        <div className="message">{message ? <p>{message}</p> : null}</div>
-      </form> */}
       {/* NEW FORM BELOW */}
       <form onSubmit={handleSubmit}>
         <div class="mb-3 w-50 mx-auto">

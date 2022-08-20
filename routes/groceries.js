@@ -25,8 +25,7 @@ router.post('/buyfood', (req, res) => {
 // Delete groceries data
 router.delete('/:id', (req, res) => {
   console.log(req.params.id);
-  // const data = await dbConnect();
-  // const result = data.deleteOne({_id: req.params.id})
+
   Groceries.findByIdAndDelete(req.params.id)
     .then(() => res.json(`${req.params.id} has been removed`))
     .catch((err) => res.status(400).json('Error' + err));

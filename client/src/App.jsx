@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import GroceriesTable from './GroceriesTable';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -21,12 +20,10 @@ function App() {
   useEffect(() => {
     fetch('http://localhost:5050/groceries')
       .then((res) => {
-        // console.log(res);
         return res.json();
       })
       .then((data) => {
         setGroceriesList(data);
-        // console.log(data);
       })
       .catch((err) => console.log(err));
   }, [groceriesList]);

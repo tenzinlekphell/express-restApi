@@ -14,15 +14,7 @@ const GroceriesTable = ({ foodName, foodPrice, foodStore }) => {
     foodPrice,
     foodStore,
   ]);
-  //   function createData({ foodName, foodPrice, foodStore }) {
-  //     return { foodName, foodPrice, foodStore };
-  //   }
 
-  //   const rows = [
-  //     createData({ foodName, foodPrice, foodStore }),
-  //     createData({ foodName, foodPrice, foodStore }),
-  //     createData({ foodName, foodPrice, foodStore }),
-  //   ];
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -41,38 +33,20 @@ const GroceriesTable = ({ foodName, foodPrice, foodStore }) => {
               </div>
             );
           })}
-          <TableRow
-            // key={foodName}
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-          >
+          <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
             <TableCell component="th" scope="row">
               {foodName}
             </TableCell>
             <TableCell align="right">{foodPrice}</TableCell>
             <TableCell align="right">{foodStore}</TableCell>
           </TableRow>
-          <TableRow
-            // key={foodName}
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-          >
+          <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
             <TableCell component="th" scope="row">
               {foodName}
             </TableCell>
             <TableCell align="right">{foodPrice}</TableCell>
             <TableCell align="right">{foodStore}</TableCell>
           </TableRow>
-          {/* {rows.map((row) => (
-            <TableRow
-              key={row.foodName}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.foodName}
-              </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-            </TableRow>
-          ))} */}
         </TableBody>
       </Table>
     </TableContainer>
